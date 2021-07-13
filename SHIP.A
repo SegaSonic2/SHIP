@@ -1,0 +1,145 @@
+*
+*
+	OPT	E,CASE
+	SECT	90
+	XDEF	.sundata
+	XDEF	.shipdata
+	XDEF	.expdata
+	XDEF	.letterdata
+	XDEF	.arrowdata
+	XDEF	.barchars
+	XDEF	.shippalette
+	XDEF	.bwpalette
+	XDEF	.shipdirtable
+	XDEF	.shipTdirtable
+	XDEF	.hdirtable
+	XDEF	.vdirtable
+	XDEF	.blinkcolor
+	XDEF	.palettedata
+	XDEF	.cellmap
+	XDEF	.chardata
+	XDEF	.chardataend
+	XDEF	.zerochar
+	XDEF	.blackpalette
+*
+*
+.blinkcolor
+	dc.w	$0ee,$0cc,$0aa,$088,$066,$044,$022
+	dc.w	$000,$022,$044,$066,$088,$0aa,$0cc
+*
+*
+.shipdirtable
+	dc.w	$04d4,$04d8,$04dc,$04e0,$04e4,$14e0,$14dc,$14d8
+	dc.w	$14d4,$1cd8,$1cdc,$1ce0,$0ce4,$0ce0,$0cdc,$0cd8
+*
+.shipTdirtable
+	dc.w	$04e8,$04ec,$04f0,$04f4,$04f8,$14f4,$14f0,$14ec
+	dc.w	$14e8,$1cec,$1cf0,$1cf4,$0cf8,$0cf4,$0cf0,$0cec
+*
+* hdirtable is the sine of the angle of the direction * 4096
+.hdirtable
+	dc.l	0,1567,2896,3784,4096,3784,2896,1567
+	dc.l	0,-1567,-2896,-3784,-4096,-3784,-2896,-1567
+*
+* vdirtable is the cosine of the angle of the direction * 4096
+.vdirtable
+	dc.l	-4096,-3784,-2896,-1567,0,1567,2896,3784
+	dc.l	4096,3784,2896,1567,0,-1567,-2896,-3784
+*
+*
+.shippalette
+	dc.w	$0000,$00EE,$006E,$000C,$080E,$0A04,$0C00,$0EA0
+	dc.w	$00A0,$0080,$0060,$0020,$00EE,$0888,$0CCC,$0EEE
+	dc.w	$0000,$00EE,$006E,$000C,$080E,$0A04,$0C00,$0EA0
+	dc.w	$0E00,$0C00,$0800,$0400,$00EE,$0888,$0CCC,$0EEE
+*
+*
+.bwpalette
+	dc.w	$000,$ea0,$e00,$a00,$ea0,$0ee,$066,$022
+	dc.w	$0a0,$060,$420,$862,$ccc,$888,$444,$eee
+*
+*
+.arrowdata
+	dc.l	$0000f000
+	dc.l	$0000ff00
+	dc.l	$0000fff0
+	dc.l	$ffffffff
+	dc.l	$ffffffff
+	dc.l	$0000fff0
+	dc.l	$0000ff00
+	dc.l	$0000f000
+*
+*
+.barchars
+	dcb.l	8,$f0000000
+	dcb.l	8,$0000000f
+	dc.l	$ffffffff
+	dcb.l	6,$00000000
+	dc.l	$ffffffff
+	dc.l	$ffffffff
+	dcb.l	6,$50000000
+	dc.l	$ffffffff
+	dc.l	$ffffffff
+	dcb.l	6,$55000000
+	dc.l	$ffffffff
+	dc.l	$ffffffff
+	dcb.l	6,$55500000
+	dc.l	$ffffffff
+	dc.l	$ffffffff
+	dcb.l	6,$55550000
+	dc.l	$ffffffff
+	dc.l	$ffffffff
+	dcb.l	6,$55555000
+	dc.l	$ffffffff
+	dc.l	$ffffffff
+	dcb.l	6,$55555500
+	dc.l	$ffffffff
+	dc.l	$ffffffff
+	dcb.l	6,$55555550
+	dc.l	$ffffffff
+	dc.l	$ffffffff
+	dcb.l	6,$55555555
+	dc.l	$ffffffff
+*
+*
+.sundata
+	include	sun.dat
+*
+*
+.shipdata
+	include	ships.dat
+*
+*
+.expdata
+	include	explos.dat
+*
+*
+.letterdata
+	include	letters.dat
+*
+*
+.zerochar
+.blackpalette
+	dc.l	$00000000
+	dc.l	$00000000
+	dc.l	$00000000
+	dc.l	$00000000
+	dc.l	$00000000
+	dc.l	$00000000
+	dc.l	$00000000
+	dc.l	$00000000
+*
+*
+.palettedata
+	include	stamppal.asm
+*
+.cellmap
+	include	stampart.asm
+*
+.chardata
+	include	stamplib.asm
+.chardataend
+	dc.w	0
+*
+*
+	END

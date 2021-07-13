@@ -1,0 +1,66 @@
+*
+*
+	OPT	E,CASE
+	SECT	90
+	XDEF	.segaart
+	XDEF	.segapal
+	XDEF	.segachar
+	XDEF	.starart
+	XDEF	.stardata
+	XDEF	.stardataend
+	XDEF	.cycle1
+	XDEF	.cycle2
+	XDEF	.cycle3
+	XDEF	.cycle4
+	XDEF	.cycle5
+	XDEF	.cycle6
+	XDEF	.cycle7
+*
+*
+.cycle1
+	dc.w	$000,$600,$a00,$e00,$ea0,$e00,$a00,$600,$fff
+*
+*
+.cycle2
+	dc.w	$000,$000,$600,$a00,$e00,$a00,$600,$000,$fff
+*
+*
+.cycle3
+	dc.w	$000,$000,$000,$600,$a00,$600,$000,$000,$fff
+*
+*
+.cycle4
+	dc.w	$000,$600,$a00,$e00,$ea0,$e00,$a00,$600,$fff
+*
+*
+.cycle5
+	dc.w	$000,$022,$066,$0aa,$0ee,$0aa,$066,$022,$fff
+*
+*
+.cycle6
+	dc.w	$000,$000,$000,$022,$066,$022,$000,$000,$fff
+*
+*
+.cycle7
+	dc.w	$000,$000,$000,$000,$020,$000,$000,$000,$fff
+*
+*
+.segaart
+	include segaart.dat
+*
+.segachar
+	include segachar.dat
+*
+.segapal
+	include segapal.dat
+*
+*
+.starart
+	include starart.asm
+*
+.stardata
+	include starchar.asm
+.stardataend
+*
+*
+	END

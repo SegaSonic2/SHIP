@@ -1,0 +1,11 @@
+list d,s,t,x
+ORDER 9,15,90
+SECT 14=$FF8000
+FORMAT S
+load shipc.obj
+load ..\segahdrs\lib.obj
+load ship.obj
+load ship2.obj
+load play.obj
+load music\gems.obj
+load \mcc68k\68000\mcc68kab.lib
